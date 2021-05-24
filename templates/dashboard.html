@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block side %}
+<div class="col-sm-10">
+
+    <h3 class="text-white my-5">Dashboard Page</h3>
+    {% if messages %}
+    <ul class="messages list-group">
+
+        {% for message in messages %}
+        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+            </li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+
+        <input type="submit" class="btn btn-primary" value="Add Blog">
+        <input type="button" onclick="location.href='{% url 'addshow' %}';" class="btn btn-primary" style="margin-left:40px;" value="Go To All Blog" />
+      
+    </form>
+ </div>
+{% endblock side %}

@@ -1,0 +1,13 @@
+{% extends 'showhome.html' %}
+{% block content %}
+<div class='col-sm-7'>
+<h4 class='text-center alert alert-primary'>Update The Title</h4>
+<form action="" method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+ {{form.as_p}}
+ <input type="submit" class='btn btn-primary'>
+  <input type="button" onclick="location.href='{% url 'addshow' %}';" class="btn btn-primary" style="margin-left:40px;" value="Go Back" />
+ 
+</form>
+</div>
+{% endblock %}

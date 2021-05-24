@@ -1,0 +1,48 @@
+
+{% extends 'showhome.html' %}
+ {% block content %}
+ <div class="row">
+     <div class="col-sm-20"> 
+         <h4 class="text-center alert alert-primary">Delete And Updae Posted Blogs Data</h4>
+      <button class="btn btn-danger alert alert-primary"><a href="{% url 'dashboard' %}" style="text-decoration: none; color:black;"> Add Blog</a> </button>
+      <button class="btn btn-danger alert alert-primary"><a href="{% url 'base' %}" style="text-decoration: none; color:black;"> Go To Home</a> </button>
+    
+      {% if stu %}
+           
+           <table class="table table-hover">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Id</th> -->
+                <th scope="col">Title</th>
+                 <th scope="col">Title Name</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+             {% for st in stu %}
+              <tr>
+                <!-- <th scope="row">{{st.id}}</th> -->
+                <td>{{st.title_name}}</td>
+                <td>{{st.title}}</td>
+               
+                
+              </tr>
+              <tr>
+              <td>
+                    <a href="{% url 'update' st.id %}" class="btn btn-warning">Edit</a>
+                   </td>
+                   <td>
+                    <a href="{% url 'deletefun' st.id %}" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+              
+              {% endfor %}
+           
+          </table>
+      {% else %}
+           <h4 class="text-center alert alert-warning">Table Data Is Not Present</h4>
+      {% endif %}    
+    </div>
+     
+ </div>
+{% endblock %}

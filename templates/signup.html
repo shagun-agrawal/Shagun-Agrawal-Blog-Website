@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block side %}
+<div class="col-sm-10">
+<h1 class='text-white'>Signin To Become An Author</h1>
+                       {% if messages %}
+                    <ul class="messages list-group">
+
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}" {% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                            </li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <form method="POST" class="cmxform" novalidate>
+                        {% csrf_token %}
+
+                        <div class="form-group row">
+                            <label for="firstname" class="col-sm-2 form-control-label">First Name:</label>
+                            <div class="col-sm-8">
+                                {% comment %} <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Maniruzzaman" name="name" minlength="2" required> {% endcomment %}
+                                {{form.firstname}}
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastname" class="col-sm-2 form-control-label">Last Name:</label>
+                            <div class="col-sm-8">
+                                {{form.lastname}}
+                                {{form.lastname.errors}}
+                                {% comment %} <input stype="text" name="lastname" class="form-control" id="lastname" placeholder="Akash"> {% endcomment %}
+                            </div>
+                        </div>
+                          {% comment %} ['firstname','lastname','email','username','password','confirm_password','birthdate'] {% endcomment %}
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 form-control-label">Email:</label>
+                            <div class="col-sm-8">
+                               {{form.email}}
+                                {{form.email.errors}}
+                        
+                                {% comment %} <input type="email" name="email" class="form-control email" id="email" placeholder="test@example.com"> {% endcomment %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="username" class="col-sm-2 form-control-label">Username:</label>
+                            <div class="col-sm-8">
+                                   {{form.username}}
+                                   {{form.usersname.errors}}
+                                {% comment %} <input type="text" name="username" class="form-control" id="username" placeholder="akash90"> {% endcomment %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 form-control-label">Password:</label>
+                            <div class="col-sm-8">
+                                {% comment %} <input type="password" name="password" class="form-control" id="password" placeholder="Enter password"> {% endcomment %}
+                                {{form.password}}
+                                 {{form.password.errors}}
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group row">
+                            <label for="confirm_password" class="col-sm-2 form-control-label">Confirm Password:</label>
+                            <div class="col-sm-8">
+                            {{form.confirm_password}}
+                            {{form.confirm_password.errors}}
+                                {% comment %} <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Same password previously entered"> {% endcomment %}
+                            </div>
+                        </div>
+
+                        
+                        <div class="form-group row">
+                            <label for="birthdate" class="col-sm-2 form-control-label">BirthDate:</label>
+                            <div class="col-sm-8">
+                                {{form.birthdate}}
+                                 {{form.birthdate.error}}
+                                {% comment %} <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Enter Birthdate" required> {% endcomment %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <input type="submit" class="btn btn-success btn-lg btn-block" id="submitForm" value="Sign Up Now" />
+                            </div>
+                        </div>
+                      <a href="{% url 'login' %}"> <u><h4 style="margin-left:300px">Already Have An Account</h4></u></a>
+                    </form>
+
+                   <!-- Form End -->
+
+</div>
+{% endblock side %}

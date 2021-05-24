@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block side %}
+<div class="col-sm-10">
+    <h3 class="text-white my-5">Contact Page</h3>
+
+
+<form novalidate>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Contact No</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+  </div>
+ <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+  </div>
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+  <button type="submit" class="btn btn-primary" onclick="message()">Submit</button>
+</form>
+</div>
+{% endblock side %}

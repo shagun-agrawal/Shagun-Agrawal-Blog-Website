@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block style %}
+
+{% endblock style %}
+{% load static %}
+ {% block content %}
+
+     
+<div class="row">
+    <h3 class="text-white my-5">Home Page</h3>
+      
+    {% for fm in form %}
+
+     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 card mb-3 mr-3" style="max-width:540px; background-color: black; overflow: hidden;" >
+      
+        <div class="row g-0" style="overflow:hidden">
+          <div class="col-md-4" style="overflow:hidden">
+            <img src="{{fm.photo.url}}" alt="..." style="height: 180px;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{fm.title_name}}</h5>
+              <p class="card-text">{{fm.title}}</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+   
+    {% endfor %}
+        
+</div>
+ {% endblock content %}

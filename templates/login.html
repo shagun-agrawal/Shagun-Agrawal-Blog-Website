@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block side %}
+<div class="col-sm-10">
+    <h3 class="text-white my-5">Login Page</h3>
+  <form method="POST" class="cmxform" action="{% url 'login' %}">
+                                {% csrf_token %}
+
+                                <div class="form-group row">
+
+                                    <label for="username" class="col-sm-2 form-control-label">Email:</label>
+                                    <div class="col-sm-8">
+                                        {% comment %} <input type="text" name="username" class="form-control"
+                                            id="username" placeholder="Enter Your Name" required /> {% endcomment %}
+
+                                        {{form.email}}
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-2 form-control-label">Password:</label>
+                                    <div class="col-sm-8">
+                                        {{form.password}}
+                                        {% comment %} <input type="password" name="password" class="form-control"
+                                            id="password" placeholder="Enter password" required /> {% endcomment %}
+                                    </div>
+                                </div>
+
+                      
+
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-offset-2 col-sm-8">
+                                        <input type="submit" class="btn btn-success btn-lg " id="submitForm"
+                                            value="Sign In" />
+                                    </div>
+                                </div>
+
+                                <div class="forget">                                   
+                                        <a href="{% url 'signup' %}">Create a new account</a>
+                                    </p>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </form>
+
+                       {% if messages %}
+                    <ul class="messages list-group">
+
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}" {% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                            </li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+</div>
+{% endblock side %}
